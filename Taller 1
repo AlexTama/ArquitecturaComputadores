@@ -33,13 +33,13 @@ a[4]= a[2]+x;
 	ST %L3, %L0, (4*4)
 
 
-y = y[40]+13;
+y[0] = y[40]+13;
 
 %L0 = %L0 + 13
 
 	LD %L0, (40*4), %L1
 	ADD %L1, 13, %L2
-	ST %L2, %13, %L0
+	ST %L2, %13, (0*4)
 
 4. Convertir a lenguaje de maquina.
 a.
