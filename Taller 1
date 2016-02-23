@@ -39,7 +39,7 @@ y[0] = y[40]+13;
 
 	LD %L0, (40*4), %L1
 	ADD %L1, 13, %L2
-	ST %L2, %13, (0*4)
+	ST %L2, %13, %L0
 
 4. Convertir a lenguaje de maquina.
 a.
