@@ -93,6 +93,9 @@ Lenguaje de máquina:
 	OR %g0, 0, %o0
 	10 01000 000010 00000 1 0000000000000
 
+	Código hexadecimal:
+	90102000
+
 
 
 
