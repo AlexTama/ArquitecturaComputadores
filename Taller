@@ -1,1 +1,116 @@
-Pasar a lenguaje de bajo nivel, lenguaje máguina y a sistema hexadecimal
+Pasar a lenguaje de bajo nivel, lenguaje máquina y a sistema hexadecimal
+
+int main(){
+
+	int p = 3, h[300], b[40];
+	
+	h[10] = 3;
+	b[4] = -1;
+	h[20] = b[4] + h[10] + p;
+	
+	return 0;
+}
+
+Lenguaje de bajo nivel:
+
+	p -> %l0 ; h -> %l1 ; b -> %l2
+
+	OR %g0, 3, %l0
+	OR %g0, 0, %l1
+	OR %g0, 1200, %l2
+	OR %g0, 3, %l3
+	ST %l3, %l1, 40
+	OR %g0, -1, %l4
+	ST %l4, %l2, 16
+	ADD %l3, %l4, %l3
+	ADD %l3, %l0, %L3
+	ST %l3, %l1, 80
+	OR %g0, 0, %o0
+
+Lenguaje de máquina:
+
+	OR %g0, 3, %l0	
+	10 10000 000010 00000 1 0000000000011
+
+	Código hexadecimal:
+	A0102003
+
+	OR %g0, 0, %l1
+	10 10001 000010 00000 1 0000000000000
+
+
+	Código hexadecimal:
+	A2102000
+
+	OR %g0, 1200, %l2
+	10 10010 000010 00000 1 1110010110000
+	
+	Código hexadecimal:
+	A4103CB0
+
+	OR %g0, 3, %l3
+	10 10010 000010 00000 1 0000000000011
+
+	Código hexadecimal:
+	A4102003
+
+	ST %l3, %l1, 40
+	11 10011 000100 10001 1 0000000101000
+
+	Código hexadecimal:
+	E6246028
+	
+	OR %g0, -1, %l4
+	10 10100 000010 00000 1 0000000011111
+
+	Código hexadecimal:
+	A810201F
+
+	ST %l4, %l2, 16
+	11 10100 000100 10010 1 0000000010000
+	
+	Código hexadecimal:
+	E824A010
+
+	ADD %l3, %l4, %l3
+	10 10011 000000 10011 0 0000000010100
+
+	Código hexadecimal:
+	A604C014
+	
+	ADD %l3, %l0, %L3
+	10 10011 000000 10011 0 0000000010000	
+	
+	Código hexadecimal:
+	A604C010
+
+	ST %l3, %l1, 80
+	11 10011 000100 10001 1 0000001010000
+
+	Código hexadecimal:
+	E6246050
+	
+	OR %g0, 0, %o0
+	10 01000 000010 00000 1 0000000000000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+
+
