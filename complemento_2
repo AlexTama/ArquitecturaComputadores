@@ -1,0 +1,42 @@
+Taller complemento a 2
+
+int main(){
+	int a = -19200;
+	return 0;
+}
+
+a -> %l0
+
+
+00000000000000000100101100000000 = -19200
+11111111111111111011010011111111 -> complemento a 1
+			       1 -> complemento a 2
+--------------------------------
+11111111111111111011010100000000 
+
+tomando los 22 bits más representativos
+1111111111111111101101 = 4194285
+
+Los diez bits restantes
+0100000000 = 256
+
+Instrución en lenguaje de bajo nivel:
+	
+	SETHI, 4194285, %l0
+	OR %l0, 256, %l1
+	OR %g0, 0, %o0
+
+Instrucción en lenguaje de máquina:
+	
+	SETHI, 4194285, %l0
+	op 	rd	op2 	imm 22 bits
+	00 	10000	100 	1111111111111111101101
+
+	OR %l0, 256, %l1
+	op	rd	op3	rs1	i	rs2
+	10	10001	000010	10000	1	0000100000000
+
+	OR %g0, 0, %o0
+	op	rd	op3	rs1	i	rs2
+	10	01000	000010	00000	0	0000000000000
+
